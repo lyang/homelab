@@ -1,0 +1,35 @@
+---
+# yaml-language-server: $schema=https://raw.githubusercontent.com/fluxcd-community/flux2-schemas/refs/heads/main/kustomization-kustomize-v1.json
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: 1password-connect-prerequisites
+  namespace: flux-system
+spec:
+  decryption:
+    provider: sops
+    secretRef:
+      name: sops
+  interval: 5m
+  path: "./infrastructure/1password-connect/prerequisites"
+  prune: true
+  sourceRef:
+    kind: GitRepository
+    name: flux-system
+---
+# yaml-language-server: $schema=https://raw.githubusercontent.com/fluxcd-community/flux2-schemas/refs/heads/main/kustomization-kustomize-v1.json
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: 1password-connect-operator
+  namespace: flux-system
+spec:
+  dependsOn:
+    - name: 1password-connect-prerequisites
+  interval: 5m
+  path: "./infrastructure/1password-connect/operator"
+  prune: true
+  sourceRef:
+    kind: GitRepository
+    name: flux-system
+
