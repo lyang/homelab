@@ -1,0 +1,41 @@
+---
+# yaml-language-server: $schema=https://taskfile.dev/schema.json
+
+version: '3'
+set: [pipefail]
+shopt: [globstar]
+
+tasks:
+  init:
+    desc: Initialize age key
+    deps:
+      - setup-age-key
+
+  setup-age-key:
+    internal: true
+    desc: Setup age key
+    deps:
+      - create-age-key-in-1password
+    cmd: op document get age-keys --vault homelab > {{ .SOPS_AGE_KEY_FILE }}
+
+  create-age-key-in-1password:
+    internal: true
+    desc: Create age key in 1password
+    deps:
+      - create-homelab-vault-in-1password
+    cmds:
+      - task: store-age-key-in-1password
+
+  create-homelab-vault-in-1password:
+    internal: true
+    desc: Create homelab vault in 1password
+    cmd: op vault create homelab
+    status:
+      - op vault get homelab
+
+  store-age-key-in-1password:
+    internal: true
+    cmd: age-keygen | op document create - --vault homelab --title age-keys --file-name {{ .SOPS_AGE_KEY_FILE | base }}
+    status:
+      - op document get age-keys --vault homelab | age-keygen -y
+

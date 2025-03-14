@@ -1,0 +1,18 @@
+---
+# yaml-language-server: $schema=https://taskfile.dev/schema.json
+
+version: '3'
+set: [pipefail]
+shopt: [globstar]
+
+env:
+  SOPS_AGE_KEY_FILE: '{{ .ROOT_DIR }}/age-keys.txt'
+
+includes:
+  bootstrap: './taskfiles/bootstrap'
+
+tasks:
+  default:
+    cmd: task --list
+    silent: true
+
