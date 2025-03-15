@@ -5,11 +5,23 @@ version: '3'
 set: [pipefail]
 shopt: [globstar]
 
+vars:
+  SOPS_CONF_TEMPLATE: '{{.ROOT_DIR}}/taskfiles/bootstrap/.sops.yaml.j2'
+
 tasks:
   init:
-    desc: Initialize age key
+    desc: Setup encryption keys
+    deps:
+      - setup-sops
+
+  setup-sops:
     deps:
       - setup-age-key
+    cmds:
+      - minijinja-cli --define AGE_PUBLIC_KEY={{ .AGE_PUBLIC_KEY }} {{ .SOPS_CONF_TEMPLATE }} > {{ .ROOT_DIR }}/.sops.yaml
+    vars:
+      AGE_PUBLIC_KEY:
+        sh: age-keygen -y {{ .SOPS_AGE_KEY_FILE }}
 
   setup-age-key:
     internal: true
@@ -38,4 +50,3 @@ tasks:
     cmd: age-keygen | op document create - --vault homelab --title age-keys --file-name {{ .SOPS_AGE_KEY_FILE | base }}
     status:
       - op document get age-keys --vault homelab | age-keygen -y
-
