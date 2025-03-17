@@ -6,19 +6,20 @@ set: [pipefail]
 shopt: [globstar]
 
 vars:
-  SOPS_CONF_TEMPLATE: '{{.ROOT_DIR}}/taskfiles/bootstrap/.sops.yaml.j2'
+  SOPS_CONF_TEMPLATE: '{{ .TASKFILE_DIR }}/.sops.yaml.j2'
 
 tasks:
-  init:
-    desc: Setup encryption keys
+  bootstrap:
+    desc: Bootstrap SOPS keys
     deps:
       - setup-sops
 
   setup-sops:
+    internal: true
     deps:
       - setup-age-key
     cmds:
-      - minijinja-cli --define AGE_PUBLIC_KEY={{ .AGE_PUBLIC_KEY }} {{ .SOPS_CONF_TEMPLATE }} > {{ .ROOT_DIR }}/.sops.yaml
+      - minijinja-cli --define AGE_PUBLIC_KEY={{ .AGE_PUBLIC_KEY }} {{ .SOPS_CONF_TEMPLATE }} --output {{ .ROOT_DIR }}/.sops.yaml
     vars:
       AGE_PUBLIC_KEY:
         sh: age-keygen -y {{ .SOPS_AGE_KEY_FILE }}

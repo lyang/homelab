@@ -9,7 +9,8 @@ env:
   SOPS_AGE_KEY_FILE: '{{ .ROOT_DIR }}/age-keys.txt'
 
 includes:
-  bootstrap: './taskfiles/bootstrap'
+  sops: sops/Taskfile.yaml
+  terraform: terraform/Taskfile.yaml
 
 tasks:
   default:
