@@ -1,0 +1,17 @@
+---
+# yaml-language-server: $schema=https://taskfile.dev/schema.json
+
+version: '3'
+set: [pipefail]
+shopt: [globstar]
+
+tasks:
+  bootstrap:
+    desc: Bootstrap Terraform config
+    deps:
+      - init
+
+  init:
+    desc: Initialize terraform
+    internal: true
+    cmd: terraform -chdir='{{ .TASKFILE_DIR }}' init
