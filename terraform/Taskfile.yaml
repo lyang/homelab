@@ -5,13 +5,34 @@ version: '3'
 set: [pipefail]
 shopt: [globstar]
 
+vars:
+  ENCRYPTED_PVE_VARS: '{{ .TASKFILE_DIR }}/pve.auto.tfvars.sops.json'
+  DECRYPTED_PVE_VARS: '{{ .TASKFILE_DIR }}/pve.auto.tfvars.json'
+
 tasks:
   bootstrap:
     desc: Bootstrap Terraform config
     deps:
       - init
+      - decrypt
 
   init:
     desc: Initialize terraform
     internal: true
     cmd: terraform -chdir='{{ .TASKFILE_DIR }}' init
+
+  decrypt:
+    desc: Decrypt secrets
+    internal: true
+    sources:
+      - '{{ .ENCRYPTED_PVE_VARS }}'
+    generates:
+      - '{{ .DECRYPTED_PVE_VARS }}'
+    cmds:
+      - SOPS_AGE_KEY_FILE={{ .SOPS_AGE_KEY_FILE }} sops decrypt '{{ .ENCRYPTED_PVE_VARS }}' --output '{{ .DECRYPTED_PVE_VARS }}'
+
+  plan:
+    desc: terraform plan
+    deps:
+      - decrypt
+    cmd: terraform -chdir='{{ .TASKFILE_DIR }}' plan
