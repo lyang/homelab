@@ -18,6 +18,10 @@ tasks:
     internal: true
     deps:
       - setup-age-key
+    sources:
+      - '{{ .SOPS_AGE_KEY_FILE }}'
+    generates:
+      - '{{ .ROOT_DIR }}/.sops.yaml'
     cmds:
       - minijinja-cli --define AGE_PUBLIC_KEY={{ .AGE_PUBLIC_KEY }} {{ .SOPS_CONF_TEMPLATE }} --output {{ .ROOT_DIR }}/.sops.yaml
     vars:
