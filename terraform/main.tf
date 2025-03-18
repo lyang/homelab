@@ -1,4 +1,8 @@
 terraform {
+  backend "s3" {}
+}
+
+terraform {
   required_providers {
     proxmox = {
       source  = "telmate/proxmox"

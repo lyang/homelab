@@ -8,6 +8,8 @@ shopt: [globstar]
 vars:
   ENCRYPTED_PVE_VARS: '{{ .TASKFILE_DIR }}/pve.auto.tfvars.sops.json'
   DECRYPTED_PVE_VARS: '{{ .TASKFILE_DIR }}/pve.auto.tfvars.json'
+  ENCRYPTED_BACKEND: '{{ .TASKFILE_DIR }}/backend.sops.json'
+  DECRYPTED_BACKEND: '{{ .TASKFILE_DIR }}/backend.json'
 
 tasks:
   bootstrap:
@@ -19,10 +21,15 @@ tasks:
   init:
     desc: Initialize terraform
     internal: true
-    cmd: terraform -chdir='{{ .TASKFILE_DIR }}' init
+    cmd: terraform -chdir='{{ .TASKFILE_DIR }}' init -backend-config='{{ .TASKFILE_DIR }}/backend.json'
 
   decrypt:
-    desc: Decrypt secrets
+    internal: true
+    deps:
+      - decrypt-pve-vars
+      - decrypt-backend
+
+  decrypt-pve-vars:
     internal: true
     sources:
       - '{{ .ENCRYPTED_PVE_VARS }}'
@@ -31,8 +38,25 @@ tasks:
     cmds:
       - SOPS_AGE_KEY_FILE={{ .SOPS_AGE_KEY_FILE }} sops decrypt '{{ .ENCRYPTED_PVE_VARS }}' --output '{{ .DECRYPTED_PVE_VARS }}'
 
+  decrypt-backend:
+    internal: true
+    sources:
+      - '{{ .ENCRYPTED_BACKEND }}'
+    generates:
+      - '{{ .DECRYPTED_BACKEND }}'
+    cmds:
+      - SOPS_AGE_KEY_FILE={{ .SOPS_AGE_KEY_FILE }} sops decrypt '{{ .ENCRYPTED_BACKEND }}' --output '{{ .DECRYPTED_BACKEND }}'
+
+
   plan:
     desc: terraform plan
     deps:
       - decrypt
     cmd: terraform -chdir='{{ .TASKFILE_DIR }}' plan
+
+  apply:
+    desc: terraform apply
+    deps:
+      - decrypt
+    cmds:
+      - terraform -chdir='{{ .TASKFILE_DIR }}' apply

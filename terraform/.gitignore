@@ -1,4 +1,4 @@
 .terraform/
 *.tfvars.json
 !vm.auto.tfvars.json
-terraform.tfstate*
+backend.json
