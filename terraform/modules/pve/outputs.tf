@@ -1,3 +1,5 @@
 output "talos-nodes" {
-  value = proxmox_vm_qemu.talos-nodes.*.default_ipv4_address
+  value = {
+    for node in proxmox_vm_qemu.talos-nodes : node.name => node.default_ipv4_address
+  }
 }

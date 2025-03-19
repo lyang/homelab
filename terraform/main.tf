@@ -12,12 +12,12 @@ terraform {
 }
 
 provider "proxmox" {
-  pm_api_url = var.pve.url
-  pm_api_token_id = var.pve.token-id
+  pm_api_url          = var.pve.url
+  pm_api_token_id     = var.pve.token-id
   pm_api_token_secret = var.pve.token-secret
 }
 
 module "pve" {
-  source = "./modules/pve"
+  source   = "./modules/pve"
   talos-vm = var.talos-vm
 }
