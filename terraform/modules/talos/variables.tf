@@ -4,7 +4,7 @@ variable "talos-cluster" {
     endpoint = string
     nodes = object({
       controlplanes = map(string)
-      workers      = optional(map(string), {})
+      workers       = optional(map(string), {})
     })
   })
 }
