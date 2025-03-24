@@ -6,8 +6,6 @@ set: [pipefail]
 shopt: [globstar]
 
 vars:
-  ENCRYPTED_PVE_VARS: '{{ .TASKFILE_DIR }}/pve.auto.tfvars.sops.json'
-  DECRYPTED_PVE_VARS: '{{ .TASKFILE_DIR }}/pve.auto.tfvars.json'
   ENCRYPTED_BACKEND: '{{ .TASKFILE_DIR }}/backend.sops.json'
   DECRYPTED_BACKEND: '{{ .TASKFILE_DIR }}/backend.json'
 
@@ -26,17 +24,7 @@ tasks:
   decrypt:
     internal: true
     deps:
-      - decrypt-pve-vars
       - decrypt-backend
-
-  decrypt-pve-vars:
-    internal: true
-    sources:
-      - '{{ .ENCRYPTED_PVE_VARS }}'
-    generates:
-      - '{{ .DECRYPTED_PVE_VARS }}'
-    cmds:
-      - SOPS_AGE_KEY_FILE={{ .SOPS_AGE_KEY_FILE }} sops decrypt '{{ .ENCRYPTED_PVE_VARS }}' --output '{{ .DECRYPTED_PVE_VARS }}'
 
   decrypt-backend:
     internal: true
