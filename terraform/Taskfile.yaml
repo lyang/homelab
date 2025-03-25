@@ -8,6 +8,8 @@ shopt: [globstar]
 vars:
   ENCRYPTED_BACKEND: '{{ .TASKFILE_DIR }}/backend.sops.json'
   DECRYPTED_BACKEND: '{{ .TASKFILE_DIR }}/backend.json'
+  ENCRYPTED_XOA_VARS: '{{ .TASKFILE_DIR }}/xoa.auto.tfvars.sops.json'
+  DECRYPTED_XOA_VARS: '{{ .TASKFILE_DIR }}/xoa.auto.tfvars.json'
 
 tasks:
   bootstrap:
@@ -24,7 +26,17 @@ tasks:
   decrypt:
     internal: true
     deps:
+      - decrypt-auto-vars
       - decrypt-backend
+
+  decrypt-auto-vars:
+    internal: true
+    sources:
+      - '{{ .ENCRYPTED_XOA_VARS }}'
+    generates:
+      - '{{ .DECRYPTED_XOA_VARS }}'
+    cmds:
+      - SOPS_AGE_KEY_FILE={{ .SOPS_AGE_KEY_FILE }} sops decrypt '{{ .ENCRYPTED_XOA_VARS }}' --output '{{ .DECRYPTED_XOA_VARS }}'
 
   decrypt-backend:
     internal: true

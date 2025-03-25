@@ -8,7 +8,16 @@ terraform {
       source  = "siderolabs/talos"
       version = "0.7.1"
     }
+    xenorchestra = {
+      source  = "vatesfr/xenorchestra"
+      version = "0.29.0"
+    }
   }
+}
+
+provider "xenorchestra" {
+  url   = var.xoa.url
+  token = var.xoa.token
 }
 
 data "talos_image_factory_versions" "this" {
@@ -55,3 +64,13 @@ resource "terraform_data" "talos-iso" {
   }
 }
 
+data "xenorchestra_sr" "storage-iso" {
+  name_label = var.xoa.storage.iso
+}
+
+resource "xenorchestra_vdi" "talos-iso" {
+  name_label = local.talos-iso
+  sr_id      = data.xenorchestra_sr.storage-iso.id
+  filepath   = "${path.module}/generated/${local.talos-iso}"
+  type       = "raw"
+}
