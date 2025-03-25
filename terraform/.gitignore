@@ -1,4 +1,3 @@
 .terraform/
 *.tfvars.json
-!talos-vm.auto.tfvars.json
 backend.json

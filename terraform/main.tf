@@ -68,9 +68,67 @@ data "xenorchestra_sr" "storage-iso" {
   name_label = var.xoa.storage.iso
 }
 
+data "xenorchestra_sr" "storage-vdi" {
+  name_label = var.xoa.storage.vdi
+}
+
 resource "xenorchestra_vdi" "talos-iso" {
   name_label = local.talos-iso
   sr_id      = data.xenorchestra_sr.storage-iso.id
   filepath   = "${path.module}/generated/${local.talos-iso}"
   type       = "raw"
+}
+
+data "xenorchestra_template" "talos-vm" {
+  name_label = var.talos-vm.template
+}
+
+data "xenorchestra_network" "talos-vm" {
+  name_label = var.talos-vm.network.name
+}
+
+resource "xenorchestra_vm" "talos-controlplane" {
+  count        = var.talos-node.controlplane.count
+  memory_max   = var.talos-vm.memory.max
+  cpus         = var.talos-vm.cpus
+  name_label   = format("talos-controlplane-%02d", count.index + 1)
+  template     = data.xenorchestra_template.talos-vm.id
+  auto_poweron = true
+  cdrom {
+    id = xenorchestra_vdi.talos-iso.id
+  }
+
+  network {
+    network_id  = data.xenorchestra_network.talos-vm.id
+    mac_address = format(var.talos-node.controlplane.mac, count.index + 1)
+  }
+
+  disk {
+    sr_id      = data.xenorchestra_sr.storage-vdi.id
+    name_label = format("talos-controlplane-%02d-disk", count.index + 1)
+    size       = var.talos-vm.disk.size
+  }
+}
+
+resource "xenorchestra_vm" "talos-worker" {
+  count        = var.talos-node.worker.count
+  memory_max   = var.talos-vm.memory.max
+  cpus         = var.talos-vm.cpus
+  name_label   = format("talos-worker-%02d", count.index + 1)
+  template     = data.xenorchestra_template.talos-vm.id
+  auto_poweron = true
+  cdrom {
+    id = xenorchestra_vdi.talos-iso.id
+  }
+
+  network {
+    network_id  = data.xenorchestra_network.talos-vm.id
+    mac_address = format(var.talos-node.worker.mac, count.index + 1)
+  }
+
+  disk {
+    sr_id      = data.xenorchestra_sr.storage-vdi.id
+    name_label = format("talos-worker-%02d-disk", count.index + 1)
+    size       = var.talos-vm.disk.size
+  }
 }
