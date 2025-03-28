@@ -52,16 +52,30 @@ tasks:
     cmds:
       - SOPS_AGE_KEY_FILE={{ .SOPS_AGE_KEY_FILE }} sops decrypt '{{ .ENCRYPTED_BACKEND }}' --output '{{ .DECRYPTED_BACKEND }}'
 
+  fmt:
+    desc: terraform fmt
+    deps:
+      - decrypt
+    cmd: terraform -chdir='{{ .TASKFILE_DIR }}' fmt -recursive
 
   plan:
     desc: terraform plan
     deps:
       - decrypt
+      - fmt
     cmd: terraform -chdir='{{ .TASKFILE_DIR }}' plan
 
   apply:
     desc: terraform apply
     deps:
       - decrypt
+      - fmt
     cmds:
       - terraform -chdir='{{ .TASKFILE_DIR }}' apply
+
+  destroy:
+    desc: terraform destroy
+    deps:
+      - decrypt
+      - fmt
+    cmd: terraform -chdir='{{ .TASKFILE_DIR }}' destroy
