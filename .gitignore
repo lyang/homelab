@@ -1,3 +1,5 @@
 age-keys.txt
 .sops.yaml
 .task
+.talosconfig
+.kubeconfig

@@ -29,11 +29,19 @@ variable "talos-node" {
   type = object({
     controlplane = object({
       count = number
-      mac  = string
+      mac   = string
+      cidr  = string
     })
     worker = object({
       count = number
-      mac  = string
+      mac   = string
+      cidr  = string
     })
+  })
+}
+
+variable "talos-cluster" {
+  type = object({
+    name = string
   })
 }
