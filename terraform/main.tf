@@ -213,3 +213,13 @@ data "talos_client_configuration" "this" {
   endpoints            = [for node in xenorchestra_vm.talos-controlplane : node.ipv4_addresses[0]]
   nodes                = concat([for node in xenorchestra_vm.talos-controlplane : node.ipv4_addresses[0]], [for node in xenorchestra_vm.talos-worker : node.ipv4_addresses[0]])
 }
+
+resource "local_file" "kubeconfig" {
+  filename = "${path.root}/generated/.kubeconfig"
+  content  = talos_cluster_kubeconfig.this.kubeconfig_raw
+}
+
+resource "local_file" "talosconfig" {
+  filename = "${path.root}/generated/.talosconfig"
+  content  = data.talos_client_configuration.this.talos_config
+}

@@ -72,8 +72,6 @@ tasks:
       - fmt
     cmds:
       - terraform -chdir='{{ .TASKFILE_DIR }}' apply
-      - terraform -chdir='{{ .TASKFILE_DIR }}' output -json | jq -r .talosconfig.value > .talosconfig
-      - terraform -chdir='{{ .TASKFILE_DIR }}' output -json | jq -r .kubeconfig.value > .kubeconfig
 
   output:
     desc: terraform output
