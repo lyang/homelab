@@ -19,6 +19,10 @@ terraform {
   }
 }
 
+provider "kubernetes" {
+  config_path = "${path.root}/generated/.kubeconfig"
+}
+
 provider "flux" {
   kubernetes = {
     config_path = "${path.root}/generated/.kubeconfig"
@@ -243,4 +247,14 @@ resource "local_file" "talosconfig" {
 
 resource "flux_bootstrap_git" "this" {
   path = "clusters/homelab"
+}
+
+resource "kubernetes_secret" "sops" {
+  metadata {
+    name      = "sops"
+    namespace = flux_bootstrap_git.this.namespace
+  }
+  data = {
+    "sops.agekey" = var.flux.sops.age.private
+  }
 }

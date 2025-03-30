@@ -53,5 +53,11 @@ variable "flux" {
       username = string
       pat      = string
     })
+    sops = object({
+      age = object({
+        public  = string
+        private = string
+      })
+    })
   })
 }
