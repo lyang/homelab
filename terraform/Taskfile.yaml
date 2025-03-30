@@ -8,6 +8,8 @@ shopt: [globstar]
 vars:
   ENCRYPTED_BACKEND: '{{ .TASKFILE_DIR }}/backend.sops.json'
   DECRYPTED_BACKEND: '{{ .TASKFILE_DIR }}/backend.json'
+  ENCRYPTED_FLUX_VARS: '{{ .TASKFILE_DIR }}/flux.auto.tfvars.sops.json'
+  DECRYPTED_FLUX_VARS: '{{ .TASKFILE_DIR }}/flux.auto.tfvars.json'
   ENCRYPTED_TALOS_VM_VARS: '{{ .TASKFILE_DIR }}/talos-vm.auto.tfvars.sops.json'
   DECRYPTED_TALOS_VM_VARS: '{{ .TASKFILE_DIR }}/talos-vm.auto.tfvars.json'
   ENCRYPTED_XOA_VARS: '{{ .TASKFILE_DIR }}/xoa.auto.tfvars.sops.json'
@@ -34,12 +36,15 @@ tasks:
   decrypt-auto-vars:
     internal: true
     sources:
+      - '{{ .ENCRYPTED_FLUX_VARS }}'
       - '{{ .ENCRYPTED_TALOS_VM_VARS }}'
       - '{{ .ENCRYPTED_XOA_VARS }}'
     generates:
+      - '{{ .DECRYPTED_FLUX_VARS }}'
       - '{{ .DECRYPTED_TALOS_VM_VARS }}'
       - '{{ .DECRYPTED_XOA_VARS }}'
     cmds:
+      - SOPS_AGE_KEY_FILE={{ .SOPS_AGE_KEY_FILE }} sops decrypt '{{ .ENCRYPTED_FLUX_VARS }}' --output '{{ .DECRYPTED_FLUX_VARS }}'
       - SOPS_AGE_KEY_FILE={{ .SOPS_AGE_KEY_FILE }} sops decrypt '{{ .ENCRYPTED_TALOS_VM_VARS }}' --output '{{ .DECRYPTED_TALOS_VM_VARS }}'
       - SOPS_AGE_KEY_FILE={{ .SOPS_AGE_KEY_FILE }} sops decrypt '{{ .ENCRYPTED_XOA_VARS }}' --output '{{ .DECRYPTED_XOA_VARS }}'
 

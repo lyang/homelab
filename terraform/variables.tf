@@ -45,3 +45,13 @@ variable "talos-cluster" {
     name = string
   })
 }
+
+variable "flux" {
+  type = object({
+    github = object({
+      repo     = string
+      username = string
+      pat      = string
+    })
+  })
+}

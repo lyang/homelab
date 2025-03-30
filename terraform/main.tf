@@ -4,6 +4,10 @@ terraform {
 
 terraform {
   required_providers {
+    flux = {
+      source  = "fluxcd/flux"
+      version = "1.5.1"
+    }
     talos = {
       source  = "siderolabs/talos"
       version = "0.7.1"
@@ -11,6 +15,19 @@ terraform {
     xenorchestra = {
       source  = "vatesfr/xenorchestra"
       version = "0.29.0"
+    }
+  }
+}
+
+provider "flux" {
+  kubernetes = {
+    config_path = "${path.root}/generated/.kubeconfig"
+  }
+  git = {
+    url = var.flux.github.repo
+    http = {
+      username = var.flux.github.username
+      password = var.flux.github.pat
     }
   }
 }
@@ -222,4 +239,8 @@ resource "local_file" "kubeconfig" {
 resource "local_file" "talosconfig" {
   filename = "${path.root}/generated/.talosconfig"
   content  = data.talos_client_configuration.this.talos_config
+}
+
+resource "flux_bootstrap_git" "this" {
+  path = "clusters/homelab"
 }

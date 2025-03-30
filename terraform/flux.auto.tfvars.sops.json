@@ -1,0 +1,26 @@
+{
+  "flux": {
+    "github": {
+      "repo": "ENC[AES256_GCM,data:9Wch3stsPDhEGPBwkgY6qIA7UCgC6+kpghD+ANacqm/8NWX+,iv:0lAfCXo24jGGDOWz9AyMy3JgL5M6LGP8M8UEwwSDmGs=,tag:khh8RcpxTL+TYpvU3xGm8A==,type:str]",
+      "username": "ENC[AES256_GCM,data:UgAKqbw=,iv:pE1eRWiU/hEW4K/3aHMP69dHaOQi1l00tYvQsBtPdZQ=,tag:Kenuv+uXjLLQy66koH61ZQ==,type:str]",
+      "pat": "ENC[AES256_GCM,data:LQPCTAI/peXtiBL3s2lIsllhZzcE825/snNRGeyEN1dX5+qJG0LHQ6eAjTQKxor2vv80LZg26Ni+WE2N0q3Blb65LeIJobItpqQT7dVN1NlPQhxCKae6dG9zZ1mh,iv:UX6KM0gngiLukQrDtumKMc+lnMmRta53/orfHoY+cOA=,tag:uXU+C+vIIh/PrfIIY/SD0Q==,type:str]"
+    }
+  },
+  "sops": {
+    "kms": null,
+    "gcp_kms": null,
+    "azure_kv": null,
+    "hc_vault": null,
+    "age": [
+      {
+        "recipient": "age1qyexusm3l3lks3yttv4dcmf7p8ccyt0v66q6p29arzwgpyv6reus3qvt6r",
+        "enc": "-----BEGIN AGE ENCRYPTED FILE-----\nYWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBqNWxHUzREV0lBREtrbTVl\nZDZla25rY3NXUzhFbXVLM2xac201b3VXYUJNCkVxalY5YXBTLzBPa0ZQck9Bd2lr\nUXZCekd5blpndVY0aEdSb2tBVjZnWHMKLS0tIDNBUVBZNkJRbFNyalkyUmhWN3FE\nUDJhYUZyVGhSbmlNdnllSjEzU2lMNVUKomPY/eDaqqwyxw5382bQTMVx4E000GyH\nFmusjUP5XqIh0QVfqsWGSAwxktjbjpR/9Dm/aKZwSkq+onyo4uwSuQ==\n-----END AGE ENCRYPTED FILE-----\n"
+      }
+    ],
+    "lastmodified": "2025-03-30T06:44:39Z",
+    "mac": "ENC[AES256_GCM,data:v7Uplt4+12WcOr113n1znvF+ugYPgaryGTHIo3Y3TNRruXz5m1iA6dVk43lAzaIlzbFmxScUcyJlysJrJik/SwemCGo1XqSUITrjlVahqv2hbKwrWvg/55QTYQrzNVCXpOROr4uw2aFysUIeg9UvmsSPA8LWB0BGfgnRMp6JQDQ=,iv:/ZEK5Oi4Aw7z2ad/34kD5mFk0Q6m67BH7iLbkKeGe0c=,tag:grLh8wyLfBAOMyCXv5ulkg==,type:str]",
+    "pgp": null,
+    "unencrypted_suffix": "_unencrypted",
+    "version": "3.9.4"
+  }
+}
