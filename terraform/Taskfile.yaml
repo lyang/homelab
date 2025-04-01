@@ -10,10 +10,10 @@ vars:
   DECRYPTED_BACKEND: '{{ .TASKFILE_DIR }}/backend.json'
   ENCRYPTED_FLUX_VARS: '{{ .TASKFILE_DIR }}/flux.auto.tfvars.sops.json'
   DECRYPTED_FLUX_VARS: '{{ .TASKFILE_DIR }}/flux.auto.tfvars.json'
-  ENCRYPTED_TALOS_VM_VARS: '{{ .TASKFILE_DIR }}/talos-vm.auto.tfvars.sops.json'
-  DECRYPTED_TALOS_VM_VARS: '{{ .TASKFILE_DIR }}/talos-vm.auto.tfvars.json'
-  ENCRYPTED_XOA_VARS: '{{ .TASKFILE_DIR }}/xoa.auto.tfvars.sops.json'
-  DECRYPTED_XOA_VARS: '{{ .TASKFILE_DIR }}/xoa.auto.tfvars.json'
+  ENCRYPTED_TALOS_VARS: '{{ .TASKFILE_DIR }}/talos.auto.tfvars.sops.json'
+  DECRYPTED_TALOS_VARS: '{{ .TASKFILE_DIR }}/talos.auto.tfvars.json'
+  ENCRYPTED_XOA_PROVIDER_VARS: '{{ .TASKFILE_DIR }}/xoa-provider.auto.tfvars.sops.json'
+  DECRYPTED_XOA_PROVIDER_VARS: '{{ .TASKFILE_DIR }}/xoa-provider.auto.tfvars.json'
 
 tasks:
   bootstrap:
@@ -29,6 +29,7 @@ tasks:
 
   decrypt:
     internal: true
+    run: when_changed
     deps:
       - decrypt-auto-vars
       - decrypt-backend
@@ -37,16 +38,16 @@ tasks:
     internal: true
     sources:
       - '{{ .ENCRYPTED_FLUX_VARS }}'
-      - '{{ .ENCRYPTED_TALOS_VM_VARS }}'
-      - '{{ .ENCRYPTED_XOA_VARS }}'
+      - '{{ .ENCRYPTED_TALOS_VARS }}'
+      - '{{ .ENCRYPTED_XOA_PROVIDER_VARS }}'
     generates:
       - '{{ .DECRYPTED_FLUX_VARS }}'
-      - '{{ .DECRYPTED_TALOS_VM_VARS }}'
-      - '{{ .DECRYPTED_XOA_VARS }}'
+      - '{{ .DECRYPTED_TALOS_VARS }}'
+      - '{{ .DECRYPTED_XOA_PROVIDER_VARS }}'
     cmds:
       - SOPS_AGE_KEY_FILE={{ .SOPS_AGE_KEY_FILE }} sops decrypt '{{ .ENCRYPTED_FLUX_VARS }}' --output '{{ .DECRYPTED_FLUX_VARS }}'
-      - SOPS_AGE_KEY_FILE={{ .SOPS_AGE_KEY_FILE }} sops decrypt '{{ .ENCRYPTED_TALOS_VM_VARS }}' --output '{{ .DECRYPTED_TALOS_VM_VARS }}'
-      - SOPS_AGE_KEY_FILE={{ .SOPS_AGE_KEY_FILE }} sops decrypt '{{ .ENCRYPTED_XOA_VARS }}' --output '{{ .DECRYPTED_XOA_VARS }}'
+      - SOPS_AGE_KEY_FILE={{ .SOPS_AGE_KEY_FILE }} sops decrypt '{{ .ENCRYPTED_TALOS_VARS }}' --output '{{ .DECRYPTED_TALOS_VARS }}'
+      - SOPS_AGE_KEY_FILE={{ .SOPS_AGE_KEY_FILE }} sops decrypt '{{ .ENCRYPTED_XOA_PROVIDER_VARS }}' --output '{{ .DECRYPTED_XOA_PROVIDER_VARS }}'
 
   decrypt-backend:
     internal: true
@@ -63,20 +64,56 @@ tasks:
       - decrypt
     cmd: terraform -chdir='{{ .TASKFILE_DIR }}' fmt -recursive
 
-  plan:
-    desc: terraform plan
+  required-targets:
+    internal: true
     deps:
       - decrypt
       - fmt
-    cmd: terraform -chdir='{{ .TASKFILE_DIR }}' plan
+    desc: required target for full plan/apply
+    cmds:
+      - task: require-target
+        vars:
+          ACTION: "{{ .ACTION }}"
+          TARGET: "module.talos.talos_image_factory_schematic.this"
+      - task: require-target
+        vars:
+          ACTION: "{{ .ACTION }}"
+          TARGET: "module.talos"
+    requires:
+      vars: [ACTION]
+
+  require-target:
+    internal: true
+    cmds:
+      - terraform -chdir='{{ .TASKFILE_DIR }}' {{ .ACTION }} -target {{ .TARGET }}
+      - cmd: 'if [[ "{{ .ACTION }}" == "plan" ]]; then echo NEED TO APPLY REQUIRED TARGET FIRST: {{ .TARGET }}; exit 1; fi'
+        silent: true
+    requires:
+      vars:
+        - name: ACTION
+          enum:
+            - plan
+            - apply
+    status:
+      - terraform -chdir='{{ .TASKFILE_DIR }}' state show {{ .TARGET }}
+
+  plan:
+    desc: terraform plan
+    deps:
+      - task: required-targets
+        vars:
+          ACTION: plan
+    cmds:
+      - terraform -chdir='{{ .TASKFILE_DIR }}' plan {{ .CLI_ARGS }}
 
   apply:
     desc: terraform apply
     deps:
-      - decrypt
-      - fmt
+      - task: required-targets
+        vars:
+          ACTION: apply
     cmds:
-      - terraform -chdir='{{ .TASKFILE_DIR }}' apply
+      - terraform -chdir='{{ .TASKFILE_DIR }}' apply {{ .CLI_ARGS }}
 
   output:
     desc: terraform output
@@ -84,11 +121,11 @@ tasks:
       - decrypt
       - fmt
     cmds:
-      - terraform -chdir='{{ .TASKFILE_DIR }}' output -json
+      - terraform -chdir='{{ .TASKFILE_DIR }}' output -json {{ .CLI_ARGS }}
 
   destroy:
     desc: terraform destroy
     deps:
       - decrypt
       - fmt
-    cmd: terraform -chdir='{{ .TASKFILE_DIR }}' destroy
+    cmd: terraform -chdir='{{ .TASKFILE_DIR }}' destroy {{ .CLI_ARGS }}

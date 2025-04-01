@@ -1,8 +1,4 @@
-variable "xoa-provider" {
-  type = object({
-    url   = string
-    token = string
-  })
+locals {
 }
 
 variable "talos" {
@@ -16,12 +12,12 @@ variable "talos" {
         memory = object({
           max = number
         })
+        storage = object({
+          iso = string
+        })
         iso = object({
           name = string
           url  = string
-        })
-        storage = object({
-          iso = string
         })
         disk = object({
           size = number
@@ -73,22 +69,6 @@ variable "talos" {
           sr = string
         })
       }))
-    })
-  })
-}
-
-variable "flux" {
-  type = object({
-    github = object({
-      repo     = string
-      username = string
-      pat      = string
-    })
-    sops = object({
-      age = object({
-        public  = string
-        private = string
-      })
     })
   })
 }
