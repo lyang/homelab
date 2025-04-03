@@ -14,9 +14,6 @@ variable "xoa" {
         name = string
         url  = string
       })
-      disk = object({
-        size = number
-      })
       network = object({
         name = string
         cidr = string
@@ -28,7 +25,8 @@ variable "xoa" {
         mac = string
       })
       disk = object({
-        sr = string
+        size = number
+        sr   = string
       })
     }))
   })

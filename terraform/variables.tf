@@ -23,9 +23,6 @@ variable "talos" {
         storage = object({
           iso = string
         })
-        disk = object({
-          size = number
-        })
         network = object({
           name = string
           cidr = string
@@ -37,7 +34,8 @@ variable "talos" {
           mac = string
         })
         disk = object({
-          sr = string
+          sr   = string
+          size = number
         })
       }))
     })
@@ -56,9 +54,6 @@ variable "talos" {
           name = string
           url  = string
         })
-        disk = object({
-          size = number
-        })
         network = object({
           name = string
           cidr = string
@@ -70,7 +65,8 @@ variable "talos" {
           mac = string
         })
         disk = object({
-          sr = string
+          sr   = string
+          size = number
         })
       }))
     })

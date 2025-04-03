@@ -44,7 +44,7 @@ resource "xenorchestra_vm" "this" {
   disk {
     sr_id      = var.xoa.instances[count.index].disk.sr
     name_label = "primary"
-    size       = var.xoa.common.disk.size
+    size       = var.xoa.instances[count.index].disk.size
     attached   = true
   }
 }
