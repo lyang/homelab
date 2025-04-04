@@ -15,10 +15,6 @@ variable "talos" {
         storage = object({
           iso = string
         })
-        iso = object({
-          name = string
-          url  = string
-        })
         network = object({
           name = string
           cidr = string
@@ -45,10 +41,6 @@ variable "talos" {
         })
         storage = object({
           iso = string
-        })
-        iso = object({
-          name = string
-          url  = string
         })
         network = object({
           name = string

@@ -16,10 +16,6 @@ variable "talos" {
         memory = object({
           max = number
         })
-        iso = object({
-          name = string
-          url  = string
-        })
         storage = object({
           iso = string
         })
@@ -49,10 +45,6 @@ variable "talos" {
         })
         storage = object({
           iso = string
-        })
-        iso = object({
-          name = string
-          url  = string
         })
         network = object({
           name = string
