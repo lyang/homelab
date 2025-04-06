@@ -16,6 +16,7 @@ data "talos_image_factory_extensions_versions" "this" {
   filters = {
     names = [
       "i915",
+      "iscsi-tools",
       "xen-guest-agent",
     ]
   }
