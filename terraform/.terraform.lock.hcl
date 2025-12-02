@@ -62,24 +62,25 @@ provider "registry.terraform.io/hashicorp/local" {
 }
 
 provider "registry.terraform.io/isometry/deepmerge" {
-  version = "1.0.0"
+  version = "1.2.1"
   hashes = [
-    "h1:F469XTnIA5k6fxFcBcm4chSo5jt3JJlgVkHvvh/aaO8=",
-    "zh:101fdefbcd51dc71906654e6f7c3259844794737c3da9f2ee3a87fc39fcddde6",
-    "zh:1510effa1a654673264ffe949307436c55751ef7b317c09ee385d2ab2ba366bb",
-    "zh:3ed13962032ec99830050657ffe5f82e0f1d118f93f70389bcf061898a731a95",
-    "zh:3f9bf8c52636e16244f243363ab00943f0df28deedc09e8ed42ffc9759128f09",
-    "zh:511272694efa0351942f2334c36cfbb37883a55c8f53fd1b596ff2c024aea107",
-    "zh:5501d7ef653bd9e582337e8e5400747b39e02a7bcaf20b6b4c83e3df71aac97f",
-    "zh:589c2e41b5c1db31635190a913c07ee8c442c715a53c6c570668872273d99c40",
-    "zh:614d59e38592471a9c8b3fb30f4a78c7bba2e10022dc7ff37e8e5d2a4694d994",
-    "zh:7b0b362dcf769bd210287f2ca98a3277ddb838598454b255c2552fd3154ec81a",
-    "zh:7d2cb25a73f3a61387c7f08d5e0a821a87642d7d2aa6769cb4ae4090f318ce5b",
+    "h1:+GBRWyzNYKj47qmSBcV28lrIIgk3Gusj48maI+jrL0Q=",
+    "h1:9bAqmtb279RepaMCkyTDu2TwiaG3qjnpn7QEA4rwsfE=",
+    "h1:GfzlLQFCWqn4Lbe+dvnWHu0KG5uvh5CtHAA3B/U3i5A=",
+    "h1:Mss9p3q5Oko3M/3EPsLFEkhythDbd29QOnLdm635GEo=",
+    "h1:QcwKoJFZ1PdzBs2xrIfrnouEoYydRkVBOMtwvEaTw6A=",
+    "h1:UPoCcV6yLDUH7yzHB4PN5tPYI+Q2T/1uLHUHfIO89Ng=",
+    "h1:xCSdhGxioP9U0XNLpbYIeAsjonIKTCY7gOpeVIqbi6w=",
+    "h1:zWPD5ysWAKAmdXlv+GZtQ8qaLiOId/zENIUXfN+WqUU=",
+    "zh:13be4c31971addc10e26a003e22b8867dba41737ffbc9de86ed84555c4a539b7",
+    "zh:320a939a594c8a2563f4c11108e02428e7fda3bd51a4fc2298089299cf23f516",
     "zh:890df766e9b839623b1f0437355032a3c006226a6c200cd911e15ee1a9014e9f",
-    "zh:a04db51e34b5b3e442a452223357d6f3931a26e3afc7f2c1e65e97b004be836c",
-    "zh:a2e8e1bcee859ce85a563b77dca52591354bcf4fd7362c75f93af868aba99e56",
-    "zh:aaa7681f0bbaca2b1504f9f7c80dcf59e40d9d708cee9390af3e7ff1e1a0bafb",
-    "zh:fca06c704d274ee0d609d1b3339eded3f5cd5a7a2f8a42e419eaccfe0a064940",
+    "zh:9407fe1f9d332ecbd5252faa5b04f62b7fa47f19efe35a9e92d30ef2c603db45",
+    "zh:a0af6ad4d4a52a1355df5b73fe38e406f50d9fd5c8af165929a602f906de0ff7",
+    "zh:a44628f6e9bc612dbdcb013a8cf33aca3893f1697c4492847859f7db5b59c4dd",
+    "zh:abaaa7d71f7975505824adcebed320aae43fc7e13c901ffc51448f6eb59585fe",
+    "zh:ad2b1b3f348ad478ee64d294a85835625e560324e58a826530b13f49fafa9bac",
+    "zh:e8bec252634868283e47ef1208cb89b53c1e0cdd2ad804acf91d0ff368048416",
   ]
 }
 
