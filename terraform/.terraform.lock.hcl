@@ -128,24 +128,24 @@ provider "registry.terraform.io/siderolabs/talos" {
 }
 
 provider "registry.terraform.io/vatesfr/xenorchestra" {
-  version     = "0.37.2"
-  constraints = "0.37.2"
+  version     = "0.37.3"
+  constraints = "0.37.3"
   hashes = [
-    "h1:AOnisPqa1csunK7QPAdmSiRKh/MfDkCq4igJBfdrfSc=",
-    "h1:Y2g2ApNXldQmkyHk9g72iXvy0ZQFOZpunomF+76/3eY=",
-    "h1:cdqZTm80qqAnf8tpkn9dOApCEBlfNYb8TVTT5ghVz88=",
-    "h1:jVczDsuugniw2c/Lwfz+zKmXnKTbIv/PFQmTIaXWOkQ=",
-    "h1:jy95UxI7XaaOH7zEZaXVjEtKbHBT8s1s3iJm4APX1IE=",
-    "h1:mXEqUWeDS9bPnrk5dOUQ9P9Qr/YUOYtAMy07XdJ6PuU=",
-    "h1:wzWTpil/ebTFKxGQpxe6o4IxJqeBCC0gySGKgsD/YHs=",
-    "h1:zA0UCz/H3IeNYCAvX8/V6wk/bDYpRZcnnEb+G060EBc=",
-    "zh:010774d8d31a3a6c50a0fcf2b4b59f3dd61650180a070773bff5f41e824dc476",
-    "zh:229d58954cd3ffcab401cce54dccb09ac853f2c1b57952ecea22d907392a5b4b",
-    "zh:94679559ea33dae89a8538193e18a0c58f2045ba9c0fdf384ac45b8d901e75a5",
-    "zh:b18c0a2050aa3805008e2324a39d1ce0f46f5d7d8013a2007aa0c9cf23088221",
-    "zh:b6ecb9fcab2ad5d7a81b36dc6ba10e0be890770e23d92b076940e703b7c41bab",
-    "zh:b73f4c942e9ec825f5732178ab9f04893e4e4bd8333dc38e64afd8d8ecedb80b",
-    "zh:ef8a1bcfeb710c99b072da41238ba4285f8c86bb04f1cfea0ab1b7e57e122b64",
-    "zh:f963d7ef74e870cc5dcc0ebddc066c57c9d970f40865d8f4db3e05b5c0b13bb9",
+    "h1:A+2o0bRL56X4aqlykCe0mzA0weaUILAJoBgZhmmVWLM=",
+    "h1:KHyovsC6YgM6PglpRv2v3op9F1kRekiZVFmunlLYCyo=",
+    "h1:WZmuHu/CO6fbQOyRVitJTQ+HJbOLZJ2DSaPupk1qLrY=",
+    "h1:XU8Y2QR7Y8iEKoShhJW2oEDrr5Uum/LtefASPvQfOM0=",
+    "h1:kjCQYrQqVBfyh2t2T7sIshdW8bRlBhqWlo29oj4DpUk=",
+    "h1:rZC9zSifkFx4IKbobDI5sWrG9rMTQ6HIoR+pCE4UlhE=",
+    "h1:sZXGAXK2uXNZjJiMxOZdYR22sffA1Qlhup2Tk54qvJ0=",
+    "h1:zE2i/Gacpg8r2cEhwq2ZRyEsC5ZOsvPDzM9tjXgYh/Q=",
+    "zh:07f2d282608a58feba1be6647e83100ee6b4babf42c1e4263d36bc43628fe002",
+    "zh:087387c64aadad873badef6ee0ba033dc14b68c180eb64c5771d17e2f58a0329",
+    "zh:17116a864ea08da042ab771de7ae445e96373804d2adffee0974702658deb577",
+    "zh:17e47c1ba94c2808a84438b43ff1b759132e6592b0c14df425a150e0b80706eb",
+    "zh:2442b13de6ee4eba28530e88105c49fe5f513576f51da1ba3d433b7be7e68039",
+    "zh:8524abdc1ee1539c06f98c9773ccfde61f0356fbc4690d858b01f57a50380094",
+    "zh:d666165e70eadc2bebf55b63973289a55978a8b3f82a183e580c3a9baaf97769",
+    "zh:f676d6a719eac68462be5324c2a4c48c5acdb323af71d489f3680115d0cb5685",
   ]
 }
