@@ -2,7 +2,7 @@ terraform {
   required_providers {
     xenorchestra = {
       source  = "vatesfr/xenorchestra"
-      version = "0.37.2"
+      version = "0.37.3"
     }
   }
 }
