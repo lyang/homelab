@@ -128,24 +128,24 @@ provider "registry.terraform.io/siderolabs/talos" {
 }
 
 provider "registry.terraform.io/vatesfr/xenorchestra" {
-  version     = "0.37.3"
-  constraints = "0.37.3"
+  version     = "0.37.4"
+  constraints = "0.37.4"
   hashes = [
-    "h1:A+2o0bRL56X4aqlykCe0mzA0weaUILAJoBgZhmmVWLM=",
-    "h1:KHyovsC6YgM6PglpRv2v3op9F1kRekiZVFmunlLYCyo=",
-    "h1:WZmuHu/CO6fbQOyRVitJTQ+HJbOLZJ2DSaPupk1qLrY=",
-    "h1:XU8Y2QR7Y8iEKoShhJW2oEDrr5Uum/LtefASPvQfOM0=",
-    "h1:kjCQYrQqVBfyh2t2T7sIshdW8bRlBhqWlo29oj4DpUk=",
-    "h1:rZC9zSifkFx4IKbobDI5sWrG9rMTQ6HIoR+pCE4UlhE=",
-    "h1:sZXGAXK2uXNZjJiMxOZdYR22sffA1Qlhup2Tk54qvJ0=",
-    "h1:zE2i/Gacpg8r2cEhwq2ZRyEsC5ZOsvPDzM9tjXgYh/Q=",
-    "zh:07f2d282608a58feba1be6647e83100ee6b4babf42c1e4263d36bc43628fe002",
-    "zh:087387c64aadad873badef6ee0ba033dc14b68c180eb64c5771d17e2f58a0329",
-    "zh:17116a864ea08da042ab771de7ae445e96373804d2adffee0974702658deb577",
-    "zh:17e47c1ba94c2808a84438b43ff1b759132e6592b0c14df425a150e0b80706eb",
-    "zh:2442b13de6ee4eba28530e88105c49fe5f513576f51da1ba3d433b7be7e68039",
-    "zh:8524abdc1ee1539c06f98c9773ccfde61f0356fbc4690d858b01f57a50380094",
-    "zh:d666165e70eadc2bebf55b63973289a55978a8b3f82a183e580c3a9baaf97769",
-    "zh:f676d6a719eac68462be5324c2a4c48c5acdb323af71d489f3680115d0cb5685",
+    "h1:GadC8Ysf0A6xaiqlvJvUBts3RR9Xr8gr+QdW4722If4=",
+    "h1:IYTcgU8Kml7Vxx131xZilaSJUXRjKbn3vsIAUELaQro=",
+    "h1:KoEXOdADIdvvh0Q4K7g163RSVeZJoJ38A92ddI9du9Y=",
+    "h1:Ozoao2J/64R5q4d170gppyNsa53YY2NUGMMfsYDTnsM=",
+    "h1:QyJ83ah0q0FW2jLDFYboD5qetFsB5p0Xodzg+kATB4s=",
+    "h1:bb4Jq2M4a+2oa36O+gLyWSPg+L+tmPf+nua1lv9j4eE=",
+    "h1:g5GIwgyOynrL8cRg8VphSspNemmBAxmDrztItEXwDHg=",
+    "h1:jiJ34nxqs8Mk0BfnTh/iZd4wt0K1/OK8vmiDPOx7XdA=",
+    "zh:06c2df4271f4e55e4b5ebef8ba0464ff8668ffc8cf1e47503bd2fc3b31e5e2b4",
+    "zh:097295abf402cd7107744a30bd011fff669237ade1c834fa965a4feeeb38e13f",
+    "zh:2e8bbd68612e37b39984903b5f9b55b07a2c7cf12d9a14c12499f9125155c0d5",
+    "zh:2ee62f52197eaf9437a9c2e7bb61abe3276c1bcfc401a814b187ca8d27fd1577",
+    "zh:329e057ddc70c4f77f64ab78170ec415fe7e80c1a3eb5416172211aafaca306c",
+    "zh:b1d4866961a9336280395756e77463b059836706de3420a78a36fbf12a917692",
+    "zh:d3b754178c89c77b8678a7e28ac032133f553768063f1816e081755debf863ab",
+    "zh:e336f8ee16851dedcc237d0add0c82e550aa3ef0140538c1fa78195b2d051cf0",
   ]
 }

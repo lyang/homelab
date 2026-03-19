@@ -18,7 +18,7 @@ terraform {
     }
     xenorchestra = {
       source  = "vatesfr/xenorchestra"
-      version = "0.37.3"
+      version = "0.37.4"
     }
   }
 }
