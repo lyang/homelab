@@ -10,7 +10,7 @@ terraform {
     }
     flux = {
       source  = "fluxcd/flux"
-      version = "1.8.5"
+      version = "1.8.6"
     }
     talos = {
       source  = "siderolabs/talos"
