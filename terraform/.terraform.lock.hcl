@@ -128,24 +128,24 @@ provider "registry.terraform.io/siderolabs/talos" {
 }
 
 provider "registry.terraform.io/vatesfr/xenorchestra" {
-  version     = "0.37.4"
-  constraints = "0.37.4"
+  version     = "0.39.0"
+  constraints = "0.39.0"
   hashes = [
-    "h1:GadC8Ysf0A6xaiqlvJvUBts3RR9Xr8gr+QdW4722If4=",
-    "h1:IYTcgU8Kml7Vxx131xZilaSJUXRjKbn3vsIAUELaQro=",
-    "h1:KoEXOdADIdvvh0Q4K7g163RSVeZJoJ38A92ddI9du9Y=",
-    "h1:Ozoao2J/64R5q4d170gppyNsa53YY2NUGMMfsYDTnsM=",
-    "h1:QyJ83ah0q0FW2jLDFYboD5qetFsB5p0Xodzg+kATB4s=",
-    "h1:bb4Jq2M4a+2oa36O+gLyWSPg+L+tmPf+nua1lv9j4eE=",
-    "h1:g5GIwgyOynrL8cRg8VphSspNemmBAxmDrztItEXwDHg=",
-    "h1:jiJ34nxqs8Mk0BfnTh/iZd4wt0K1/OK8vmiDPOx7XdA=",
-    "zh:06c2df4271f4e55e4b5ebef8ba0464ff8668ffc8cf1e47503bd2fc3b31e5e2b4",
-    "zh:097295abf402cd7107744a30bd011fff669237ade1c834fa965a4feeeb38e13f",
-    "zh:2e8bbd68612e37b39984903b5f9b55b07a2c7cf12d9a14c12499f9125155c0d5",
-    "zh:2ee62f52197eaf9437a9c2e7bb61abe3276c1bcfc401a814b187ca8d27fd1577",
-    "zh:329e057ddc70c4f77f64ab78170ec415fe7e80c1a3eb5416172211aafaca306c",
-    "zh:b1d4866961a9336280395756e77463b059836706de3420a78a36fbf12a917692",
-    "zh:d3b754178c89c77b8678a7e28ac032133f553768063f1816e081755debf863ab",
-    "zh:e336f8ee16851dedcc237d0add0c82e550aa3ef0140538c1fa78195b2d051cf0",
+    "h1:6I5c7/BODDAu+IfdJoRstHP/KvpO/6y2nCYPDq/l/Wc=",
+    "h1:6V3MO0qwJ/x9ygHMb05k1Y0cd4HzRoqsZDLlLW9v3Sk=",
+    "h1:6Zbppbc7r0ZHi1lWjWozaWgF/s+YYgJTP78PPO/33AA=",
+    "h1:9EjXC7jJdePw5eCt28hHfV51bQi/z8Zs5Kne33CfJcE=",
+    "h1:L6M23jkp87bJZErWvkWmHmOQ1UM+XGXbDVI3YWRyNO0=",
+    "h1:ZpMcGW/EnmUC8EzPlPevaFpQBy4+SQUKmyFP2mHvAuA=",
+    "h1:aqWkUNifIHIg7LtHYZqyE70kTsot8EO0Xuh1MsPdaLg=",
+    "h1:wpAECYE92wEoVWIiuaW3jKf8MGlEpA1mG4x+1o8Qxr8=",
+    "zh:116a14ba9a31d1d70c05629ed88d7041bcc5888e71de244f26f8202e892a3308",
+    "zh:38233e2e7e2e93b48a4e618b5a5e91f562dad15b0059872f6ab3f15c59a84afa",
+    "zh:4c9c516152af41668bce1bc0601290f7848a0d7edd4fa8cf00a1c9d5336f3cbd",
+    "zh:6dc1407c1257a0eda25bdae260f1bbfcdecd7fb2b4d6eb6665cfc9837e08c833",
+    "zh:711918d43538299c2df3c6284c3354424ea299d4aedecbce556b2a8af12ba87d",
+    "zh:a2d0e018f820f5c1461b6ddb1a9abac065702173efe66ab4a9d5e171ef395197",
+    "zh:b9545fe909e684213e4d064e129933c7eb70e7b7c605b87ce8bdc755aad57d96",
+    "zh:ccd5cea98ba26dad80afffc22848023e4cbcf32c7630e4043f06dddb1885ff5d",
   ]
 }
