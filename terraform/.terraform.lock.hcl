@@ -126,24 +126,24 @@ provider "registry.terraform.io/siderolabs/talos" {
 }
 
 provider "registry.terraform.io/vatesfr/xenorchestra" {
-  version     = "0.40.0"
-  constraints = "0.40.0"
+  version     = "0.41.0"
+  constraints = "0.41.0"
   hashes = [
-    "h1:4ulGCeLR8pfoMdqFqitig+j6ZmiyrQxprbuKIJDLE44=",
-    "h1:AyO1csVwz7dA0Rjjx5ld9l590hLrypSNLkSgU0EMVrI=",
-    "h1:Fr5XuKrcHzySkfAywIL5JauEiO5mPxmqEsHelYpdy/o=",
-    "h1:G1Gy/X/lYZpv0mdF4jPDIZlKFde4WsotohWKoELg9s4=",
-    "h1:NTdPpO2qB73xhQdm/8VzNS33kF7NJ3SWuvve3HPMZyk=",
-    "h1:YH9xMlHqRHOxY4G633g83kpIf8/S4knkwk1N6F12XcE=",
-    "h1:YtzelpO7XAPOn5zi4LtGGXj0CboOAON+OTQ6P0f1ogM=",
-    "h1:lc2qi6LoFXz7TjqyN+nEif5s/J9tR2T58P18tIxObu4=",
-    "zh:24e34589ca0ee01bdac12bb9df84c95b21285a4e5c4d025c44e31f013413233e",
-    "zh:27ac436c31954f804ed69d9a20cb552bc62075d8c5aadf1aded3d740a4bc0288",
-    "zh:4b43dbf61fbf970f2caf725e5362320909890d1dcba1549f5a9913395a26692d",
-    "zh:5eea0a86147350b37f1c0fd609d7d48bd65e660a7de2bffad293cfd4121cf22d",
-    "zh:79289dd92f2cac795f1f2a2247156da5310bde9a91629757de2b83754e5e158f",
-    "zh:7b8157ac0dd66d83cc92f4246ea2461e61d37abeb02980fc27919e2a217f5507",
-    "zh:f1442f0d3059ccbc441a88189c8166a7ea932c1c1d273597096505ec9c87b209",
-    "zh:f1a9e85288d826850b6d945369e57d5d81bf65d92442f609943f05673b770c42",
+    "h1:/Y2k1PMQuVOeJRzTClCMJ9hMkXVwyjSGy9gu7dk8T0A=",
+    "h1:0uR5ZPTSYZB1J4yJY9fmAoq1V8OyuST8fDQo+Y6XDj4=",
+    "h1:Fyfi4uLzZAPRmDUoO6dGafobIw54HOKkj+W3IjQugDM=",
+    "h1:QFZuQLF12QIG/wWUl1AI+d5FKfKrMQC7dcoctAmkbzQ=",
+    "h1:TNCu2jqawtGTp1iIC4dKu2Eg/RijcT7zbqre46mtXdQ=",
+    "h1:XTT2eD1x0pzVu4SmthoEeHfM4qjkyxLzuR6m/Md3YwE=",
+    "h1:kyIijzmYzwc5T8jFboQ6Msgc0zPbBSRzZyEWCPc5DTM=",
+    "h1:vyEUVcOBpieqe22rQRDjyYUSiXbAToPsPQ+PjVlogXk=",
+    "zh:3cf428121c99ef91dc8f740062e2f0aaad71253f4df9b84f4939d58c3df6d79e",
+    "zh:78cc24f2e6a5a8b4b6b39d9a7a4f6fdb9eca90b2ae5d95c5f257b1357fcdaf0e",
+    "zh:bb317ae1c3e10f2469887bbce40e808db216439d10259106e8f757a1d3ccd06d",
+    "zh:c6fe0e03984019e0dd9cc0e315679528baf3df5da24ee46943cc121cd1c01996",
+    "zh:d51aacca0b830e1aab83ebce78ccd1ece4c0a5244a53f681d6bcab27df6e2c69",
+    "zh:e74b17f930b4bd43855ebb4121073063fd041cebfef7080a0947d89e34a6a67a",
+    "zh:e7eb2a4402b4e7e2d6f8205133efb074e28ab525fc0c9b4fd4b8d2528aff5203",
+    "zh:f421c53edb87cf67deb8fd8b81e18ca07ca44c381242ae18785be1a30ecf9096",
   ]
 }
