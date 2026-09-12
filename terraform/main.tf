@@ -6,7 +6,7 @@ terraform {
   required_providers {
     deepmerge = {
       source  = "registry.terraform.io/isometry/deepmerge"
-      version = "1.3.0"
+      version = "1.3.1"
     }
     flux = {
       source  = "fluxcd/flux"
