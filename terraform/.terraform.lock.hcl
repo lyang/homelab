@@ -126,24 +126,24 @@ provider "registry.terraform.io/siderolabs/talos" {
 }
 
 provider "registry.terraform.io/vatesfr/xenorchestra" {
-  version     = "0.41.0"
-  constraints = "0.41.0"
+  version     = "0.41.1"
+  constraints = "0.41.1"
   hashes = [
-    "h1:/Y2k1PMQuVOeJRzTClCMJ9hMkXVwyjSGy9gu7dk8T0A=",
-    "h1:0uR5ZPTSYZB1J4yJY9fmAoq1V8OyuST8fDQo+Y6XDj4=",
-    "h1:Fyfi4uLzZAPRmDUoO6dGafobIw54HOKkj+W3IjQugDM=",
-    "h1:QFZuQLF12QIG/wWUl1AI+d5FKfKrMQC7dcoctAmkbzQ=",
-    "h1:TNCu2jqawtGTp1iIC4dKu2Eg/RijcT7zbqre46mtXdQ=",
-    "h1:XTT2eD1x0pzVu4SmthoEeHfM4qjkyxLzuR6m/Md3YwE=",
-    "h1:kyIijzmYzwc5T8jFboQ6Msgc0zPbBSRzZyEWCPc5DTM=",
-    "h1:vyEUVcOBpieqe22rQRDjyYUSiXbAToPsPQ+PjVlogXk=",
-    "zh:3cf428121c99ef91dc8f740062e2f0aaad71253f4df9b84f4939d58c3df6d79e",
-    "zh:78cc24f2e6a5a8b4b6b39d9a7a4f6fdb9eca90b2ae5d95c5f257b1357fcdaf0e",
-    "zh:bb317ae1c3e10f2469887bbce40e808db216439d10259106e8f757a1d3ccd06d",
-    "zh:c6fe0e03984019e0dd9cc0e315679528baf3df5da24ee46943cc121cd1c01996",
-    "zh:d51aacca0b830e1aab83ebce78ccd1ece4c0a5244a53f681d6bcab27df6e2c69",
-    "zh:e74b17f930b4bd43855ebb4121073063fd041cebfef7080a0947d89e34a6a67a",
-    "zh:e7eb2a4402b4e7e2d6f8205133efb074e28ab525fc0c9b4fd4b8d2528aff5203",
-    "zh:f421c53edb87cf67deb8fd8b81e18ca07ca44c381242ae18785be1a30ecf9096",
+    "h1:XDVm06lQDfFPxP8mIZNgF74XoiUOhGeOFqTqAsLDTwM=",
+    "h1:ZtrkFTcPZQZQj3nmBzoudkRaY9Km29x1sMLR/8L+M18=",
+    "h1:bRQC1VH+jh+Oq7oki1CqLCuz+ytwRy2V2bSN7UnwfRI=",
+    "h1:fkbE4e3hcEyDjhgX7PsVVODnk4KItEbmm+G5CsJK2vE=",
+    "h1:lqfnNV2lwpLAjj0ATr9F1fkHFexs+U9NFCUBcf7MONE=",
+    "h1:uWYo/ZuTp47EXX75DYXdatcdpiKOtQ+81XN2dF2WRPw=",
+    "h1:x28aPgod3bwseye7KtrB+cxTRcjVXqcwP9dB4m99ctU=",
+    "h1:zbAT0ljHpLeOpNuVdD8Y0irLRekT0dK/NkrZSacQO3s=",
+    "zh:09b13c314e633d4f1460db8992aac37e28993e43dbb0c47b91b88680b3271989",
+    "zh:10327f2f583de263deff9dc89c06a5406b1f11a38f8c406feb3a484f31f648ff",
+    "zh:2e22a7378e8540594561355a80fcd37e6e365fcc4f5e40b370e3f70fa316edd6",
+    "zh:377f542a77c6604fd498819b7a583cf026c3d8c17c782477011e0b2ba43914cf",
+    "zh:6dd61298a5226752f2947037a4313c920ccd6e7c89792d6d3f2546fbbe21960e",
+    "zh:80bf14e26efe142ddc95a2a2b5b79e12085046136e7bb84fdad71853881b2c01",
+    "zh:b6166d7a69bf37d6098ab1f334c73b868aa25061729b09bc08fe1dc42324a8c3",
+    "zh:f313d1ffa732bf485e034378abb6f4880941d9b352b731cd1c8bddc157f569d9",
   ]
 }
